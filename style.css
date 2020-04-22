@@ -3,15 +3,18 @@
 html,
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 0 72px;
 }
-
 * {
   box-sizing: border-box;
 }
 
+--root {
+  font-size: 16px;
+}
+
 body {
-  font: 14px "IBM Plex Sans", Helvetica, Arial, sans-serif;
+  font: 1rem "IBM Plex Sans", Helvetica, Arial, sans-serif;
 }
 
 .container {
@@ -24,14 +27,31 @@ a {
   color: #00B7FF;
 }
 
-h1 {
-  color: #444;
+button {
+  background-color: #444;
+  color: whitesmoke;
+  border: 0;
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+button:active {
+  background-color: black;
+}
+
+.flex {
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #code-block {
-  padding: 20px 40px;
+  padding: 1rem 2rem;
   background-color: rgb(242, 242, 242);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-family: 'IBM Plex Mono', monospace;
   width: 90vw;
 }
@@ -39,9 +59,9 @@ h1 {
 .footer {
   font-family: 'IBM Plex Mono', monospace;
   width: 100%;
-  position: absolute;
-  bottom: 0px;
-  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
   color: white;
   background-color: black;
 }

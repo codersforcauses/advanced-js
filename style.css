@@ -24,11 +24,12 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: rgb(59, 174, 220);
+  text-decoration: none;
 }
 
 button {
-  background-color: #444;
+  background-color: black;
   color: whitesmoke;
   border: 0;
   padding: 0.5rem 1rem;
@@ -36,9 +37,10 @@ button {
 
 button:hover {
   cursor: pointer;
+  background-color: #333;
 }
 button:active {
-  background-color: black;
+  background-color: #444;
 }
 
 .flex {

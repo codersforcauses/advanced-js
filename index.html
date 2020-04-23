@@ -11,10 +11,10 @@
   <div class="container">
     <h1>Requestify</h1>
     <div class="flex">
-      <p>Today we gonna be doing some stuff</p>
+      <p>Best requests in the west</p>
       <button onclick="getData();">Request data</button>
     </div>
-    <code id='code-block'></code>
+    <div id='code-block'></div>
   </div>
   <div class="footer">Made with <3 by cfc</div>
 </body>
@@ -22,14 +22,19 @@
 <script type='module'>
 let code = document.querySelector('#code-block');
 code.innerText = 'Welcome to Requestify';
-renderjson.set_show_to_level(2).set_icons('', '')
+renderjson.set_show_to_level(5).set_icons('+', '-')
 // function for button
 function getData() {
-  const request = fetch('https://jsonplaceholder.typicode.com/todos')
+  const request = fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(json => {
+        if (Object.keys(json).length === 0) throw { code: 500, message: 'Server error'};
         code.innerText = ''
         code.appendChild(renderjson(json))
+      })
+      .catch(err => {
+        code.innerText = 'Error:'
+        code.appendChild(renderjson(err))
       })
 }
 // need this declaration as type="module" is isolated from html

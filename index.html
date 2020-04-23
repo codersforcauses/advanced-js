@@ -12,7 +12,7 @@
     <h1>Requestify</h1>
     <div class="flex">
       <p>Best requests in the west</p>
-      <button onclick="getData();">Request data</button>
+      <button id="button" onclick="getData();">Request data</button>
     </div>
     <div id='code-block'></div>
   </div>
@@ -21,6 +21,7 @@
 <script type="text/javascript" src="renderjson.js"></script>
 <script type='module'>
 let code = document.querySelector('#code-block');
+let button = document.querySelector('#button');
 code.innerText = 'Welcome to Requestify';
 renderjson.set_show_to_level(5).set_icons('+', '-')
 // function for button
@@ -33,9 +34,13 @@ function getData() {
         code.appendChild(renderjson(json))
       })
       .catch(err => {
+        console.log(err);
         code.innerText = 'Error:'
         code.appendChild(renderjson(err))
+      }).finally(() => {
+        button.innerText = "Request data"
       })
+      button.innerText = 'Loading...'
 }
 // need this declaration as type="module" is isolated from html
 window.getData = getData;
